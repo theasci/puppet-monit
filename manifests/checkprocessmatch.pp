@@ -8,15 +8,16 @@
 # monit::checkprocessmatch { "name": }
 #
 define monit::checkprocessmatch (
-  $process      = '',
-  $template     = 'monit/checkprocessmatch.erb',
-  $pattern      = '',
-  $startprogram = '',
-  $stopprogram  = '',
-  $restarts     = '5',
-  $cycles       = '5',
-  $failaction   = 'timeout',
-  $enable       = true ) {
+  $process          = '',
+  $template         = 'monit/checkprocessmatch.erb',
+  $pattern          = '',
+  $startprogram     = '',
+  $stopprogram      = '',
+  $restarts         = '5',
+  $cycles           = '5',
+  $failaction       = 'timeout',
+  $additional_tests = '',
+  $enable           = true ) {
 
   $ensure=bool2ensure($enable)
 

@@ -11,12 +11,13 @@
 # }
 #
 define monit::checkurl (
-  $fqdn         = '',
-  $template     = 'monit/checkurl.erb',
-  $url          = '',
-  $content      = '',
-  $failaction   = 'alert',
-  $enable       = true ) {
+  $fqdn             = '',
+  $template         = 'monit/checkurl.erb',
+  $url              = '',
+  $content          = '',
+  $failaction       = 'alert',
+  $additional_tests = '',
+  $enable           = true ) {
 
   $ensure=bool2ensure($enable)
 

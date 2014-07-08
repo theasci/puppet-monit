@@ -39,6 +39,12 @@ For detailed info about the logic and usage patterns of Example42 modules check 
           absent => true
         }
 
+* Monitor a service (SSH in this example) by its pid file
+
+        class { 'monit::checkpid':
+          process => 'sshd',
+          pidfile => '/var/run/sshd.pid'
+        }
 
 ## USAGE - Overrides and Customizations
 * Use custom sources for main config file
@@ -67,6 +73,13 @@ For detailed info about the logic and usage patterns of Example42 modules check 
           my_class => 'example42::my_monit',
         }
 
+* Include additional tests for a service config file
+
+        class { 'monit::checkpid':
+          process          => 'sshd',
+          pidfile          => '/var/run/sshd.pid',
+          additional_tests => 'if failed host 192.168.1.100 port 22 then alert'
+        }
 
 ## USAGE - Example42 extensions management 
 * Activate puppi (recommended, but disabled by default)
